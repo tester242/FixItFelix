@@ -3,16 +3,35 @@
     <meta charset="utf-8">
     <title>FixItFelix</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-    <form action="/main.js">
-        <label for="background">Select a color for the background:</label>
-        <input type="color" id="background" name="background" value="#ff0000"><br><br>
-        <input type="submit">
-    </form>
-    <form action="/main.js">
-        <label for="text">Select a color for the text:</label>
-        <input type="color" id="text" name="text" value="#ff0000"><br><br>
-        <input type="submit">
-    </form>
+    <div class="sidebar" id="navBackground">
+        <ul id="sidebar" class="sidebar">
+        <li class="nav-item"><h1>QUESTIONS</h1></li>
+        <li id="Q1" class="nav-item">
+            <form action="/main.js">
+            <label for="background">Select a color for the background:</label>
+            <input type="color" id="background" name="background" value="#ff0000"><br><br>
+            <label for="text">Select a color for the text:</label>
+            <input type="color" id="text" name="text" value="#ff0000"><br><br>
+            <input type="submit">
+            </form>
+        </li>
+        <li id="Q2" hidden="true" class="nav-item" ><a class="nav-link" href="#DD">Drawn Dinosaur</a></li>
+        <li id="Q3" hidden="true" class="nav-item"><a class="nav-link" href="#BR">Baby Racoon</a></li>
+        <li id="Q4" hidden="true" class="nav-item"><a class="nav-link" href="#MM">Masked Man</a></li>
+        <li id="Q5" hidden="true" class="nav-item"><a class="nav-link" href="#SF">Squirrel with Flowers</a></li>
+        <li id="Q6" hidden="true" class="nav-item"><a class="nav-link" href="#ST">Sunset In Tree</a></li>
+        <li id="Q7" hidden="true" class="nav-item"><a class="nav-link" href="#RB">Red Bird</a></li>
+        <li id="Q8" hidden="true" class="nav-item"><a class="nav-link" href="#IM">Industrial Machine</a></li>
+        <li id="Q9" hidden="true" class="nav-item"><a class="nav-link" href="#TC">Textbook Column</a></li>
+        <li id="Q10" hidden="true" class="nav-item"><a class="nav-link" href="#PL">Purple Lightning</a></li>
+        </ul>
+    </div>
+    <div>
+        <div class="main">
+            <p> this is the main section</p>
+        </div>
+    </div>
 </body>
