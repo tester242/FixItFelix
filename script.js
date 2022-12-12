@@ -53,12 +53,10 @@ function resetState() {
 
 function selectAnswer(e) {
     const selectedButton = e.target;
-    Array.from(choices.children).forEach(button => {
-      setStatusClass(button, button.dataset.correct);
-    })
+    setStatusClass(selectedButton, button.dataset.correct);
     if (selectedButton.dataset.correct) {
         infoElement.innerText = questionsArray[index].explanation;
-        let reveal = document.getElementById(`question${index}`);
+        let reveal = document.getElementById(`question${index+1}`);
         reveal.classList.remove('hidden');
         if (questionsArray.length > index + 1) {
             nextButton.classList.remove('hidden');
@@ -69,19 +67,19 @@ function selectAnswer(e) {
     }
 }
   
-  function setStatusClass(element, correct) {
-    clearStatusClass(element);
-    if (correct) {
-      element.classList.add('correct');
-    } else {
-      element.classList.add('wrong');
-    }
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add('correct');
+  } else {
+    element.classList.add('wrong');
   }
+}
   
-  function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('wrong');
-  }
+function clearStatusClass(element) {
+  element.classList.remove('correct');
+  element.classList.remove('wrong');
+}
 
 
 
