@@ -5,18 +5,31 @@ const infoElement = document.getElementById('info');
 const choices = document.getElementById('choices');
 const nextButton = document.getElementById('next');
 const pageElements = document.querySelectorAll("#page *");
+const progress = document.getElementById("progressBar");   
 
 
 let index = 0;
+let width = 0;
+
+function update() {
+  width = ((index+1)/questionsArray.length) * 100;
+  progress.style.width = width +  '%';
+}
+
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
     index++;
+    update();
     nextQuestion();
   })
 
 function startGame() {
+    let reveal = document.getElementById(`intro`);
+    reveal.classList.add('hidden');
     index = 0;
+    width = 0;
+    progress.style.width = 0;
     pageElements.forEach(element => element.classList.add('hidden'));
     startButton.classList.add('hidden');
     quiz.classList.remove('hidden');
@@ -31,6 +44,10 @@ function nextQuestion() {
 function showQuestion(question) {
     questionElement.innerText = question.question;
     infoElement.innerText = question.info;
+    if (index == questionsArray.length-1) {
+      startButton.innerText = 'Restart';
+      startButton.classList.remove('hidden');
+    }
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
@@ -52,19 +69,14 @@ function resetState() {
   
 
 function selectAnswer(e) {
-    const selectedButton = e.target;
-    setStatusClass(selectedButton, button.dataset.correct);
-    if (selectedButton.dataset.correct) {
-        infoElement.innerText = questionsArray[index].explanation;
-        let reveal = document.getElementById(`question${index+1}`);
-        reveal.classList.remove('hidden');
-        if (questionsArray.length > index + 1) {
-            nextButton.classList.remove('hidden');
-        } else {
-          startButton.innerText = 'Restart';
-          startButton.classList.remove('hidden');
-        }
-    }
+  const selectedButton = e.target;
+  setStatusClass(selectedButton, selectedButton.dataset.correct);
+  if (selectedButton.dataset.correct) {
+      infoElement.innerText = questionsArray[index].explanation;
+      let reveal = document.getElementById(`question${index+1}`);
+      reveal.classList.remove('hidden');
+      nextButton.classList.remove('hidden');
+  }
 }
   
 function setStatusClass(element, correct) {
@@ -133,5 +145,13 @@ questionsArray = [
             {text: 'Deals, discounts', correct: false}
         ],
         explanation: 'explanation here'
+    },
+    {
+      info: 'The finished result',
+      question: "Fantastic!",
+      answers: [
+
+      ],
+      explanation: ''
     }
 ]

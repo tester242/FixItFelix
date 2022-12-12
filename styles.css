@@ -18,6 +18,11 @@ html, body {
     height: 100%;
 }
 
+#info{
+    font-size: 10px;
+    
+}
+
 .hidden {
     display: none;
 }
@@ -36,6 +41,13 @@ html, body {
     float: left;
     background-color: rgb(179, 179, 179);
 
+    text-align: center;
+}
+#start{
+    font-size: 30px;
+    width: 50%;
+    height: 30%;
+    position: relative;
     text-align: center;
 }
 
@@ -185,5 +197,23 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+#Progress_Status {
+  width: 95%;
+  background-color: #ddd;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  margin-left: 2.5%;
+}
+  
+#progressBar {
+  width: 0%;
+  height: 35px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 32px;
+  color: black;
 }
 
