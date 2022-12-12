@@ -9,28 +9,36 @@
 </head>
 <body>
     <div id="left">
-        <div id="page"></div>
+        <div id="info"></div>
+        <div id="page">
+            <h1 id='question0' class="hidden">Coffee Shop</h1>
+            <div id='question1'></div>
+            <div id='question2'></div>
+            <div id='question3'></div>
+            <div id='question4'></div>
+            <div id='question5'></div>
+        </div>
     </div>
 
 
     <div id="right">
-        <div id="quiz">
+
+        <button id="start">Start</button>
+
+        <div class="hidden" id="quiz">
 
             <h1 id="question">Where should the title be</h1>
 
-            <ul id="choices">
-                <li><button>middle</button></li>
-                <li><button>bottom</button></li>
-                <li><button>top</button></li>
-            </ul>
+            <ul id="choices"></ul>
 
-            <div id="next">
-                <button>Next</button>
+            <div id="nextDiv">
+                <button class="hidden" id="next">Next</button>
             </div>
 
         </div>
 
     </div>
     
+    <script src="script.js"></script>
 </body>
 </html>
