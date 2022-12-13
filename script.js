@@ -4,10 +4,61 @@ const questionElement = document.getElementById('question');
 const infoElement = document.getElementById('info');
 const choices = document.getElementById('choices');
 const nextButton = document.getElementById('next');
+const nextDiv = document.getElementById('nextDiv');
 const pageElements = document.querySelectorAll("#page *");
 const progress = document.getElementById("progressBar");   
 const main = document.getElementById('main');
 
+/*this function is from
+https://codepen.io/GariCarandai/pen/LYrbyPb*/
+$(document).ready(function(){
+  
+  var textBox = $('.text_box');  
+  //var chars = ['A','B','C','D', 'E','F','G','H', 'I','J','K','L', 'M','N','O','P', 'Q','R','S','T', 'U','V','W','X', 'Y','Z'];
+  var specialCharacters = ['!','§','$','%', '&','/','(',')', '=','?','_','<', '>','^','°','*', '#','-',':',';','~'];
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  var newStringSplit = "";
+  var time = 80; //125
+  var count = 0, j = 0;
+  var delayAnimation = 0;
+  
+  function startScrambleText(){
+  
+    stringSplit = textBox.text().split('');
+    textBox.css({
+      'width': stringSplit.length + 'ch',
+      'animation': 'typing '+ ((time * stringSplit.length) / 1000) +'s steps('+ stringSplit.length +')'
+    });
+    
+    var interval = setInterval(function(){
+      
+      newStringSplit = "";
+
+      for(i = 0; i <= stringSplit.length-1; i++){
+
+        if(i <= j && count >= stringSplit.length+delayAnimation){
+          newStringSplit += stringSplit[i];
+        }else{
+          newStringSplit += specialCharacters[random(0, specialCharacters.length-1)];
+        }
+
+
+      }
+      textBox.text(newStringSplit);
+      count++;
+      if(count >= stringSplit.length+delayAnimation){
+        j++;
+        if(j >= stringSplit.length){ clearInterval(interval); }
+      }
+      
+    }, time);
+  };
+  
+  startScrambleText();
+  
+});
+
+/* Our code Here */
 
 let index = 0;
 let width = 0;
@@ -26,8 +77,6 @@ nextButton.addEventListener('click', () => {
   })
 
 function startGame() {
-    let reveal = document.getElementById(`intro`);
-    reveal.classList.add('hidden');
     main.style.color="#000000";
     main.style.backgroundColor="#ffffff";
     index = 0;
@@ -82,8 +131,8 @@ function selectAnswer(e) {
   if (selectedButton.dataset.correct) {
 
     if(index==1){
-      main.style.color="#FFC20A";
-      main.style.backgroundColor="#0054af";
+      main.style.color="#141c2c";
+      main.style.backgroundColor="#f6d1ba";
     }
     if(index==3){
       let reveal = document.getElementById(`question${index-1}`);
@@ -125,14 +174,14 @@ questionsArray = [
         explanation: 'Correct! The top left is where the user will first focus their eyes on so that is the perfect place to display the name.'
     },
     {
-        info: 'It is important that a UI employs colors that are relatively neutral and easy on the eyes. This makes it far more readable for the user. Remember to keep in mind readability for the color blind as well',
-        question: 'What color combinations should we use?',
+        info: 'It is important that a UI employs colors that are contrasting to one another, makeing it far more readable for the user. Remember to keep in mind readability for the color blind as well.',
+        question: 'What colors should we use for the background and text?',
         answers: [
-            {text: 'Green and Blue', correct: false},
-            {text: 'Red and Orange', correct: false},
-            {text: 'Blue and Yellow', correct: true}
+            {text: 'White and Yellow', correct: false},
+            {text: 'Dark Green and Brown', correct: false},
+            {text: 'Cream and Navy', correct: true}
         ],
-        explanation: 'The correct answer is Blue and Yellow; Red and Orange have a low color contrast and Green and Blue do not work well for the color blind'
+        explanation: 'These color are neutral and have excellent contrast making them very readibile whether you\'re colorblind or not.'
     },
     {
         info: 'On a landing page, UI developers should aim to provide the information most users are coming to the website for.',
@@ -152,18 +201,38 @@ questionsArray = [
             {text: 'Split them into categories', correct: true},
             {text: 'Sort them on price', correct: false}
         ],
-        explanation: 'The user doesnt need to see every option as they likely already have an idea on what type of food they want, allow them to select a desired category instead.'
+        explanation: 'The user doesnt need to see every option as they likely already have an idea on what type of food they want. Categories allow them to quickly naviagte.'
     },
     {
-        info: '',
-        question: "To where and how should we direct the user's attention",
+        info: 'Important aspects of a page should be made bigger and more apparent for the user. ',
+        question: "Which element should have the user's attention be directed to the most?",
         answers: [
-            {text: 'Add to cart button', correct: false},
+            {text: 'Logo', correct: false},
             {text: 'Checkout button', correct: true},
-            {text: 'Deals, discounts', correct: false}
+            {text: 'History of the store', correct: false}
         ],
-        explanation: 'explanation here'
+        explanation: 'The checkout button is what the user will most frequently use so it is best the make it the largest and at the top of the screen.'
     },
+    {
+      info: 'The footer of a website typically contains useful, but not critical, information about the page. It is easy for users to find this information by glancing at the bottom of the page.',
+      question: "What should the footer contain?",
+      answers: [
+          {text: 'Restaurant\'s address and phone number', correct: true},
+          {text: 'Developer\'s contact info', correct: false},
+          {text: 'Similar resturant\'s websites', correct: false}
+      ],
+      explanation: 'This answer provides information that many users would look for regarding a coffee shop so it is the most important from these options to include in the footer.'
+  },
+  {
+    info: 'Error messages should provide clear and useful explanations of what went wrong and why. This allows the user to easily understand the problem and can improve the user experience.',
+    question: "What should an ideal error message for ordering outside of open hours look like?",
+    answers: [
+        {text: 'Error', correct: false},
+        {text: 'Error: You can\'t order outside of operating hours', correct: true},
+        {text: 'Error: There was a problem with your order, please try again', correct: false}
+    ],
+    explanation: 'This choice is correct because it is clearly letting the user know why the error is occuring is. The other options are too imprecise and do not have constructive solutions'
+},
     {
       info: 'The finished result',
       question: "Fantastic!",
@@ -173,3 +242,5 @@ questionsArray = [
       explanation: ''
     }
 ]
+
+

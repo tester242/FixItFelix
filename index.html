@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 
-    <div id="info"></div>
+    <div id="info"><h3 id='intro' >Welcome to FixItFelix, a game about creating a UI. In this game we will
+        be creating a web page for a coffee shop. The goal is to get the correct answer so 
+        your site works best for customers. 
+    </h3></div>
     <div class="sidebar">
         <div class="hidden" id="quiz">
 
             <h1 id="question">Where should the title be</h1>
-
+            <hr>
             <ul id="choices"></ul>
 
             <div id="nextDiv">
-                <button class="hidden" id="next">Next</button>
+                <button class="btn hidden" id="next">Next</button>
             </div>
 
         </div>
-        <button id="start">Start</button>
-        
+        <div id="starter">
+        <button class="btn"id="start">Start</button>
+    </div>
+
         <div id="Progress_Status">
             <div class="hidden" id="progressBar"></div>
         </div>
@@ -32,55 +38,54 @@
     
     <div id="main">
         <div id="page">
-            <h1 id='intro' >Welcome to FixItFelix, a game about creating a UI. In this game we will
-                be creating a web page for a coffee shop. The goal is to get the correct answer so 
-                your site works best for customers. 
-            </h1>
+            <div class="text_box">Fix it Felix</div>
             <div id='question0' class="hidden"><h1>Coffee Shop</h1></div>
             <div id='question1' class="hidden"><hr></div>
             <div id='question2' class="hidden">
                 <ul>
-                    <li>Espresso<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Latte<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Black Tea<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Cookie<i class="material-icons" id="add">add_circle</i></li>
+                    <li>Espresso <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Latte <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Black Tea <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Cookie <i class="material-icons" id="add">add_circle</i></li>
                     <li>Herbal Tea<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Iced Tea<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Cappuccino<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Mocha<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Granola Bar<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Muffin<i class="material-icons" id="add">add_circle</i></li>
+                    <li>Iced Tea <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Cappuccino <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Mocha <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Granola Bar <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Muffin <i class="material-icons" id="add">add_circle</i></li>
                 </ul>
             </div>
             <div id='question3' class="hidden">
-                <h2>Coffee</h2>
+                <h2>Coffee <i class="material-icons" id="add">expand_more</i></h2>
                 <ul>
-                    <li>Espresso<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Latte<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Cappuccino<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Mocha<i class="material-icons" id="add">add_circle</i></li>
+                    <li>Espresso <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Latte <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Cappuccino <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Mocha <i class="material-icons" id="add">add_circle</i></li>
                 </ul>
-                <h2>Tea</h2>
+                <h2>Tea <i class="material-icons" id="add">expand_more</i></h2>
                 <ul>
-                    <li>Black Tea<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Herbal Tea<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Iced Tea<i class="material-icons" id="add">add_circle</i></li>
+                    <li>Black Tea <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Herbal Tea <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Iced Tea <i class="material-icons" id="add">add_circle</i></li>
                 </ul>
-                <h2>Food</h2>
+                <h2>Food <i class="material-icons" id="add">expand_more</i></h2>
                 <ul>
-                    <li>Granola Bar<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Muffin<i class="material-icons" id="add">add_circle</i></li>
-                    <li>Cookie<i class="material-icons" id="add">add_circle</i></li>
+                    <li>Granola Bar <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Muffin <i class="material-icons" id="add">add_circle</i></li>
+                    <li>Cookie <i class="material-icons" id="add">add_circle</i></li>
                 </ul>
             </div>
             <div id='question4' class="hidden">
                 <i class="material-icons" id="cart">shopping_cart_checkout</i>
             </div>
-            <div id='question5' class="hidden"></div>
+            <div id='question5' class="hidden"><hr>
+                <h3> Phone number:(123)-456-7890<br>Address: 123 Sesame st.<br>Email: don'tTryThis@please.com</h3>
+            </div>
+            <div id='question6' class="hidden"></div>
             <div id='question7' class="hidden"></div>
             <div id='question8' class="hidden"></div>
             <div id='question9' class="hidden"></div>
-            <div id='question10' class="hidden"></div>
         </div>
     </div>
 
