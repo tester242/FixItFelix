@@ -6,7 +6,7 @@ const choices = document.getElementById('choices');
 const nextButton = document.getElementById('next');
 const pageElements = document.querySelectorAll("#page *");
 const progress = document.getElementById("progressBar");   
-const main = document.getElementsByClassName('main');
+const main = document.getElementById('main');
 
 
 let index = 0;
@@ -27,13 +27,18 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
     let reveal = document.getElementById(`intro`);
-    
     reveal.classList.add('hidden');
+    main.style.color="#000000";
+    main.style.backgroundColor="#ffffff";
     index = 0;
     width = 0;
     progress.style.width = 0;
     progress.classList.remove('hidden');
-    pageElements.forEach(element => element.classList.add('hidden'));
+    pageElements.forEach(element => {
+      if(element.tagName == 'DIV'){
+        element.classList.add('hidden');
+      }
+    });
     startButton.classList.add('hidden');
     quiz.classList.remove('hidden');
     nextQuestion();
@@ -75,13 +80,20 @@ function selectAnswer(e) {
   const selectedButton = e.target;
   setStatusClass(selectedButton, selectedButton.dataset.correct);
   if (selectedButton.dataset.correct) {
+
     if(index==1){
-      main.classList.add('color');
+      main.style.color="#FFC20A";
+      main.style.backgroundColor="#0054af";
     }
-      infoElement.innerText = questionsArray[index].explanation;
-      let reveal = document.getElementById(`question${index+1}`);
-      reveal.classList.remove('hidden');
-      nextButton.classList.remove('hidden');
+    if(index==3){
+      let reveal = document.getElementById(`question${index-1}`);
+      reveal.classList.add('hidden');
+    }
+    infoElement.innerText = questionsArray[index].explanation;
+    let reveal = document.getElementById(`question${index}`);
+    console.log(reveal);
+    reveal.classList.remove('hidden');
+    nextButton.classList.remove('hidden');
   }
 }
   
@@ -103,7 +115,7 @@ function clearStatusClass(element) {
 
 questionsArray = [
     {
-        info: 'We read from left to right and top to bottom. Therefore most key information is placed in this area since that is where the user will see it first',
+        info: 'We read from left to right and top to bottom. Therefore, key information is placed in this area users will generally direct their attention to it first.',
         question: 'Where should the name be?',
         answers: [
             {text: 'Top', correct: true},
@@ -113,7 +125,7 @@ questionsArray = [
         explanation: 'Correct! The top left is where the user will first focus their eyes on so that is the perfect place to display the name.'
     },
     {
-        info: 'Remember to keep in mind readability for the color blind as well',
+        info: 'It is important that a UI employs colors that are relatively neutral and easy on the eyes. This makes it far more readable for the user. Remember to keep in mind readability for the color blind as well',
         question: 'What color combinations should we use?',
         answers: [
             {text: 'Green and Blue', correct: false},
@@ -123,17 +135,17 @@ questionsArray = [
         explanation: 'The correct answer is Blue and Yellow; Red and Orange have a low color contrast and Green and Blue do not work well for the color blind'
     },
     {
-        info: 'info here',
+        info: 'On a landing page, UI developers should aim to provide the information most users are coming to the website for.',
         question: 'What should be on the landing page?',
         answers: [
             {text: 'The menu', correct: true},
             {text: 'Reviews', correct: false},
             {text: 'Log-in Page', correct: false}
         ],
-        explanation: 'Most users will just want to see the menu so save their time and show it to them directly.'
+        explanation: 'The third law of simplicity is time. Most users are coming to a website to see the menu, so save their time and show it to them directly. '
     },
     {
-        info: 'info here',
+        info: 'Now that we wish to present a menu, it is important to do so in a way that is clear and effecient for the user. This uses another law of simplicity: law two, organize.',
         question: 'How should we present the menu options',
         answers: [
             {text: 'Show them all', correct: false},
@@ -143,7 +155,7 @@ questionsArray = [
         explanation: 'The user doesnt need to see every option as they likely already have an idea on what type of food they want, allow them to select a desired category instead.'
     },
     {
-        info: 'info here',
+        info: '',
         question: "To where and how should we direct the user's attention",
         answers: [
             {text: 'Add to cart button', correct: false},

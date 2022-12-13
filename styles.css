@@ -133,9 +133,7 @@ li {
   /*added from here on*/
   right: 0;
   text-align: center;
-  border: #000000;
-  border-radius: 2px;
-  border-style: solid;
+  background-color: gray;
 }
 
 /* Sidebar links 
@@ -171,13 +169,15 @@ div.content {
 }
 
 /* Style page content */
-.main {
+#main {
     margin-right: var(--main-margin); /* Same as the width of the sidebar */
     padding: 10px 10px;
     border: #000000;
     border-style: solid;
     height: 90%;
     text-align:left;
+    overflow: auto;
+    position: relative;
   }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -187,7 +187,7 @@ div.content {
     height: auto;
     position: relative;
   }
-  .main{
+  #main{
     width: 100%;
   }
   .sidebar a {
@@ -227,4 +227,20 @@ div.content {
   color: black;
   border-radius: 25px;
 }
-
+#cart{
+    position: absolute;
+    top: 0;
+    right:0;
+    font-size: 48px;
+}
+#question2,#question3{
+    text-align: center;
+    font-size: large;
+}
+#add{
+    padding-top: 10px;
+    font-size: 10px;
+}
+ul {
+    list-style-type: none;
+}
