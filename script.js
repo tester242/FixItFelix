@@ -164,7 +164,7 @@ function clearStatusClass(element) {
 
 questionsArray = [
     {
-        info: 'We read from left to right and top to bottom. Therefore, key information is placed in this area users will generally direct their attention to it first.',
+        info: 'Users will information read from left to right and top to bottom. Therefore, key information is placed in this area users will generally direct their attention to it first.',
         question: 'Where should the name be?',
         answers: [
             {text: 'Top', correct: true},
@@ -181,10 +181,10 @@ questionsArray = [
             {text: 'Dark Green and Brown', correct: false},
             {text: 'Cream and Navy', correct: true}
         ],
-        explanation: 'These color are neutral and have excellent contrast making them very readibile whether you\'re colorblind or not.'
+        explanation: 'These color are neutral and have excellent contrast making them very readibile (even for the colorblind).'
     },
     {
-        info: 'On a landing page, UI developers should aim to provide the information most users are coming to the website for.',
+        info: 'On a landing page, UI developers should aim to provide the information that users are most likely seeking when they visit the website.',
         question: 'What should be on the landing page?',
         answers: [
             {text: 'The menu', correct: true},
@@ -194,14 +194,14 @@ questionsArray = [
         explanation: 'The third law of simplicity is time. Most users are coming to a website to see the menu, so save their time and show it to them directly. '
     },
     {
-        info: 'Now that we wish to present a menu, it is important to do so in a way that is clear and effecient for the user. This uses another law of simplicity: law two, organize.',
+        info: 'Now that we wish to present a menu, it is important to do so in a way that is clear and effecient for the user. ',
         question: 'How should we present the menu options',
         answers: [
             {text: 'Show them all', correct: false},
             {text: 'Split them into categories', correct: true},
             {text: 'Sort them on price', correct: false}
         ],
-        explanation: 'The user doesnt need to see every option as they likely already have an idea on what type of food they want. Categories allow them to quickly naviagte.'
+        explanation: 'The user doesnt need to see every option as they likely already have an idea on what type of food they want. Categories allow them to quickly naviagte. This uses another law of simplicity: law two, organize.'
     },
     {
         info: 'Important aspects of a page should be made bigger and more apparent for the user. ',
@@ -228,14 +228,14 @@ questionsArray = [
     question: "What should an ideal error message for ordering outside of open hours look like?",
     answers: [
         {text: 'Error', correct: false},
-        {text: 'Error: You can\'t order outside of operating hours', correct: true},
-        {text: 'Error: There was a problem with your order, please try again', correct: false}
+        {text: 'Cannot order outside of operating hours', correct: true},
+        {text: 'Issue with your order, please try again', correct: false}
     ],
     explanation: 'This choice is correct because it is clearly letting the user know why the error is occuring is. The other options are too imprecise and do not have constructive solutions'
 },
     {
-      info: 'The finished result',
-      question: "Fantastic!",
+      info: 'The mock-website is finished!',
+      question: "Great job!",
       answers: [
 
       ],
