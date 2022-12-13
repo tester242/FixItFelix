@@ -6,6 +6,7 @@ const choices = document.getElementById('choices');
 const nextButton = document.getElementById('next');
 const pageElements = document.querySelectorAll("#page *");
 const progress = document.getElementById("progressBar");   
+const main = document.getElementsByClassName('main');
 
 
 let index = 0;
@@ -26,10 +27,12 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
     let reveal = document.getElementById(`intro`);
+    
     reveal.classList.add('hidden');
     index = 0;
     width = 0;
     progress.style.width = 0;
+    progress.classList.remove('hidden');
     pageElements.forEach(element => element.classList.add('hidden'));
     startButton.classList.add('hidden');
     quiz.classList.remove('hidden');
@@ -72,6 +75,9 @@ function selectAnswer(e) {
   const selectedButton = e.target;
   setStatusClass(selectedButton, selectedButton.dataset.correct);
   if (selectedButton.dataset.correct) {
+    if(index==1){
+      main.classList.add('color');
+    }
       infoElement.innerText = questionsArray[index].explanation;
       let reveal = document.getElementById(`question${index+1}`);
       reveal.classList.remove('hidden');
@@ -107,14 +113,14 @@ questionsArray = [
         explanation: 'Correct! The top left is where the user will first focus their eyes on so that is the perfect place to display the name.'
     },
     {
-        info: 'important info that will help you answer this question here',
-        question: 'Which interaction styles should you implement?',
+        info: 'Remember to keep in mind readability for the color blind as well',
+        question: 'What color combinations should we use?',
         answers: [
-            {text: 'Direct manipulation', correct: false},
-            {text: 'Command Language', correct: false},
-            {text: 'Menu Selection', correct: true}
+            {text: 'Green and Blue', correct: false},
+            {text: 'Red and Orange', correct: false},
+            {text: 'Blue and Yellow', correct: true}
         ],
-        explanation: 'Yes, the correct answer is menu selection; direction manipulation would be cumbersome on computing resources and might excluded.'
+        explanation: 'The correct answer is Blue and Yellow; Red and Orange have a low color contrast and Green and Blue do not work well for the color blind'
     },
     {
         info: 'info here',

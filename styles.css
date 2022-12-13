@@ -11,6 +11,7 @@ to use do var(--varName)*/
     --primary-font-size: 14pt;
     --secondary-font-size: var(--primary-font-size) / 2.5pt;
     --sidebar-width:400px;
+    --main-margin:425px;
 
 }
 html, body {
@@ -19,8 +20,8 @@ html, body {
 }
 
 #info{
-    font-size: 10px;
-    
+    font-size: 30px;
+    margin-right: var(--sidebar-width);
 }
 
 .hidden {
@@ -107,6 +108,12 @@ li {
     color:white;
 }
 
+#color{
+    background-color: #0054af;
+    color:#FFC20A;
+
+}
+
 
 
 /*code from here on is from
@@ -165,7 +172,7 @@ div.content {
 
 /* Style page content */
 .main {
-    margin-right: var(--sidebar-width); /* Same as the width of the sidebar */
+    margin-right: var(--main-margin); /* Same as the width of the sidebar */
     padding: 10px 10px;
     border: #000000;
     border-style: solid;
@@ -189,13 +196,15 @@ div.content {
   div.content {
     margin-left: 0;
   }
+  #info{
+    width:100%;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
+  #info{
+    width:100%;
   }
 }
 
@@ -206,6 +215,7 @@ div.content {
   bottom: 0;
   left: 0;
   margin-left: 2.5%;
+  border-radius: 25px;
 }
   
 #progressBar {
@@ -215,5 +225,6 @@ div.content {
   text-align: center;
   line-height: 32px;
   color: black;
+  border-radius: 25px;
 }
 
